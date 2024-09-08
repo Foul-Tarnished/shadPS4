@@ -1193,6 +1193,7 @@ int PS4_SYSV_ABI scePthreadCondattrDestroy(ScePthreadCondattr* attr) {
     int result = pthread_condattr_destroy(&(*attr)->cond_attr);
 
     LOG_DEBUG(Kernel_Pthread, "scePthreadCondattrDestroy: result = {} ", result);
+    delete *attr;
 
     switch (result) {
     case 0:
